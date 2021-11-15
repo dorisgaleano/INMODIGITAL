@@ -21,9 +21,9 @@ Plataforma web que permite el registro y consulta de inmuebles(apartamentos y ca
 
 ## TECNOLOGIA
 
-Backend: Nodejs, express, mongo
+Backend: Nodejs,  mongo
 
-Frontend Angular
+Frontend Angular, HTML, CSS, JavaScript
 
 ## EQUIPO DE DESARROLLO
 
