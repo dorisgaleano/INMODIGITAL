@@ -14,7 +14,7 @@ Fabio Molina - Diseñador
 Alejandra Morales Ordoñez - Tester
 
 
-TECNOLOGIA:
+TECNOLOGIA
 
 Backend: Nodejs, express, mongo
 
