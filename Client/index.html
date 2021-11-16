@@ -6,6 +6,9 @@
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
     <link rel="stylesheet" href="styles.css">
     <script src="main.js"></script>
+    
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="jpkleemans-angular-validate/src/angular-validate.js"></script>
 </head>
 
 <body ng-controller="myController">
@@ -16,13 +19,16 @@
 
     </div>
 
-    <form class="form">
+    <form class="form"  >
         <h2 class="form_title">Registro de usuario</h2>
+        <div class="form_succes" >
+            {{todos}}
+        </div>
 
         <div class="form_container form-group">
             <div class="form_group">
-                <input type="text" class="form_input form-control input-lg text-center" id="nombres"
-                    ng-model="formData.nombres" placeholder=" ">
+                <input type="text" class="form_input form-control input-lg text-center" id="nombres" name="nombres"
+                    ng-model="formData.nombres" placeholder=" " >
                 <label class="form_label" for="valor">Nombres</label>
                 <span class="form_line"></span>
             </div>
@@ -70,7 +76,6 @@
             </div>
             <br>
 
-            {{todos}}
 
             <button class="form_submit btn btn-primary btn-lg" ng-click="createTodo()">Registrar</button>
         </div>
