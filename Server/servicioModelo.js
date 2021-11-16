@@ -21,7 +21,7 @@ app.use(bodyParser.json());
 
 
 
-app.use(express.static("public"));
+app.use(express.static("Client"));
 
 
 const path = require("path");
