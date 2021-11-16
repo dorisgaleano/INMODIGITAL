@@ -59,8 +59,8 @@ modeloUsario.find({}, (err, docs) => {
     res.writeHead(200, { 'Content-Type': HTML_CONTENT_TYPE })
  
 
-  createReadStream('./index.html').pipe(res)
-  createReadStream('./ejercicio.html').pipe(res)
+  createReadStream('./Client/index.html').pipe(res)
+  //createReadStream('./ejercicio.html').pipe(res)
 //res.end("hola mundo");
    
   })
