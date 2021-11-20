@@ -1,11 +1,12 @@
 var mongoose = require('mongoose');
+const { ObjectId } = require('mongodb');
 
 const userscheme=new mongoose.Schema(
     {
-        departamento: {
-            type: String
+        id: {
+            type: ObjectId
             },
-        ciudad: {
+        zona: {
             type: String
             },
         barrio: {

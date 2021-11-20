@@ -109,3 +109,9 @@ background-repeat: no-repeat, repeat;
     background-color: #B6FEBC;
     border-radius: .5em;
 }
+
+.form_error{
+    margin-top: 11px;
+    background-color: #F27A7A;
+    border-radius: .5em;
+}

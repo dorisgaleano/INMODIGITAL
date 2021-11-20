@@ -1,6 +1,8 @@
 const express = require("express");
 const { createReadStream } = require('fs')
 var modelo = require('./usuario')
+var modeloUbicacion = require('./ubicacion')
+var modeloInmueble = require('./inmuebles')
 
 //var qs=require("querystring")
 //var body_parser = require('body-parser');
@@ -43,12 +45,51 @@ app.post("/insertar", (req, res) => {
   res.send("Usuario creado")
 })
 
+app.get("/listadoUbicaciones", (req, res) => {
+  modeloUbicacion.find({}, (err, docs) => {
+    res.send(docs);
+  })
+})
+
+app.post("/insertarInmueble", (req, res) => {
+  var myobj = { descripcion: req.body.descripcion, tipo: req.body.tipo, ubicacion: req.body.ubicacion, direccion: req.body.direccion, nroHabitaciones: req.body.nroHabitaciones, precio: req.body.precio, imagen: req.body.imagen };
+  modeloInmueble.collection.insertOne(myobj, function (err, res) {
+    if (err) throw err;
+
+  })
+  res.send("Inmueble creado")
+})
+
+
+app.post("/RegistrarUbicacion", (req, res) => {
+  var myobj = { zona: req.body.zona, barrio: req.body.barrio };
+  modeloUbicacion.collection.insertOne(myobj, function (err, res) {
+    if (err) throw err;
+
+  })
+  res.send("Ubicación creada")
+})
+
+
+
+app.post("/login", (req, res) => {
+
+
+  modelo.find({ usuario: req.body.usuario, contrasena:req.body.contrasena }, (err, doc) => {
+    if (err) throw err;
+    if (doc[0]) {
+        res.send("logueado")
+    }else{
+      res.send("No logueado")
+    }
+  })
+})
 
 
 
 
 /*
-modeloUsario.find({}, (err, docs) => {
+modeloUsario.find({}, (erzr, docs) => {
 
      console.log(docs[2].nombre)
 

@@ -2,82 +2,45 @@
 
 <head>
     <meta name="viewport" content="width=device-width" />
-    <title>Formulario Usuario</title>
+    <title> Bienvenido</title>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
     <link rel="stylesheet" href="styles.css">
     <script src="main.js"></script>
-    
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-    <script src="jpkleemans-angular-validate/src/angular-validate.js"></script>
 </head>
 
 <body ng-controller="myController">
+    <h2>Inmobiliaria Digital</h2>
 
-    <div>
-        {{msg}}
-        <a href="javascript:;" id="lbtnTest"> Llamar </a>
-
-    </div>
-
+    
     <form class="form"  >
-        <h2 class="form_title">Registro de usuario</h2>
+        <h2 class="form_title">Iniciar sesión</h2>
         <div class="form_succes" >
             {{todos}}
+        </div>
+
+        <div class="form_error" >
+            {{errorMessage}}
         </div>
 
         <div class="form_container form-group">
             <div class="form_group">
                 <input type="text" class="form_input form-control input-lg text-center" id="nombres" name="nombres"
-                    ng-model="formData.nombres" placeholder=" " >
-                <label class="form_label" for="valor">Nombres</label>
+                    ng-model="formData.usuario" placeholder=" " >
+                <label class="form_label" for="valor">Usuario</label>
                 <span class="form_line"></span>
             </div>
             <br>
             <div class="form_group">
-                <input type="text" class="form_input form-control input-lg text-center" id="apellidos"
-                    ng-model="formData.apellidos" placeholder=" ">
-                <label class="form_label" for="valor">Apellidos</label>
+                <input type="text" class="form_input form-control input-lg text-center" id="contrasena"
+                    ng-model="formData.contrasena" placeholder=" ">
+                <label class="form_label" for="valor">Contraseña</label>
                 <span class="form_line"></span>
             </div>
-            <br>
-            <div class="form_group">
-                <input type="text" class="form_input form-control input-lg text-center" id="cedula"
-                    ng-model="formData.cedula" placeholder=" ">
-                <label class="form_label" for="valor">Cedula</label>
-                <span class="form_line"></span>
-            </div>
-            <br>
-            <div class="form_group">
-                <input type="text" class="form_input form-control input-lg text-center" id="nombre_usuario"
-                    ng-model="formData.nombre_usuario" placeholder=" ">
-                <label class="form_label" for="valor">Usuario Logeo</label>
-                <span class="form_line"></span>
-            </div>
-            <br>
-            <div class="form_group">
-                <input type="text" class="form_input form-control input-lg text-center" id="correo"
-                    ng-model="formData.correo" placeholder=" ">
-                <label class="form_label" for="valor">Correo</label>
-                <span class="form_line"></span>
-            </div>
-            <br>
-            <div class="form_group">
-                <input type="text" class="form_input form-control input-lg text-center" id="clave"
-                    ng-model="formData.clave" placeholder=" ">
-                <label class="form_label" for="valor">Clave</label>
-                <span class="form_line"></span>
-            </div>
-            <br>
-            <div class="form_group">
-                <input type="text" class="form_input form-control input-lg text-center" id="rol" ng-model="formData.rol"
-                    placeholder=" ">
-                <label class="form_label" for="valor">Rol</label>
-                <span class="form_line"></span>
-            </div>
-            <br>
 
-
-            <button class="form_submit btn btn-primary btn-lg" ng-click="createTodo()">Registrar</button>
+            <br><br>
+            <button class="form_submit btn btn-primary btn-lg" ng-click="login()" >Iniciar Sesión</button>
+            <br>
+            <a href="usuarioRegistro.html"><input type="button" value="Registrarse"></a>
         </div>
         <br>
     </form>

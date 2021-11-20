@@ -1,8 +1,9 @@
 var mongoose= require("mongoose")
+const { ObjectId } = require('mongodb');
 
 const inmobiliariaEsquema = mongoose.Schema({
 
-    nombre:{
+    descripcion:{
         type: String
     },
 
@@ -10,12 +11,8 @@ const inmobiliariaEsquema = mongoose.Schema({
         type: String
     },
 
-    descripcion:{
-        type: String
-    },
-
-    zona:{
-        type: String
+    ubicacion:{
+        type: ObjectId
     },
 
     direccion: {

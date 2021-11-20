@@ -1,0 +1,50 @@
+<html ng-app="myApp" id="myApp">
+
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title> Bienvenido</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+    <link rel="stylesheet" href="styles.css">
+    <script src="main.js"></script>
+</head>
+
+<body ng-controller="myController">
+    <h2>Registrar ubicacion</h2>
+
+    
+    <form class="form"  >
+        <div class="form_succes" >
+            {{message}}
+        </div>
+
+        <div class="form_container form-group">
+            <div class="form_group">
+                <input type="text" class="form_input form-control input-lg text-center" id="zona" name="zona"
+                    ng-model="formData.zona" placeholder=" " >
+                <label class="form_label" for="valor">Zona</label>
+                <span class="form_line"></span>
+            </div>
+            <br>
+            <div class="form_group">
+                <input type="text" class="form_input form-control input-lg text-center" id="barrio"
+                    ng-model="formData.barrio" placeholder=" ">
+                <label class="form_label" for="valor">Barrio</label>
+                <span class="form_line"></span>
+            </div>
+
+            <br><br>
+            <button class="form_submit btn btn-primary btn-lg" ng-click="RegistrarUbicacion()" >Registrar</button>
+            <br>
+            <div  style="text-align: center;">
+                <a  style="text-align: center;" href="inmuebles.html"><input type="button" value="Regresar"></a>
+            </div>
+
+            
+        </div>
+        <br>
+    </form>
+
+    <br><br>
+</body>
+
+</html>

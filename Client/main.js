@@ -9,34 +9,80 @@ ngApp.controller('myController', function ($scope, $http) {
   $scope.getData = function () {
     return 'qubernet';
   }
+
+  //Logueo en la aplicacion
+  $scope.login = function () {
+
+    $http
+      .post("http://localhost:9000/login", $scope.formData)
+      .then(function successCallback(response) {
+        // $scope.formData = {};
+
+        if (response.data == "logueado") {
+          $scope.todos = response.data;
+          window.location = '/inmuebles.html';
+          return
+        } else {
+          $scope.errorMessage = 'Credenciales invalidas'
+        }
+
+      })
+
+    //window.location = '/inmuebles.html';
+    //return
+
+  };
+
+
   $scope.createTodo = function () {
     $http
       .post("http://localhost:9000/insertar", $scope.formData)
       .then(function successCallback(response) {
         // $scope.formData = {};
         $scope.todos = response.data;
-        console.log(response);
+        console.log(response.data);
       })
 
     //   alert($scope.tel+" "+$scope.cedula)
   };
+
+
+
+  $scope.RegistrarInmueble = function () {
+
+    $http
+      .post("http://localhost:9000/insertarInmueble", $scope.formData)
+      .then(function successCallback(response) {
+        // $scope.formData = {};
+        $scope.message = response.data;
+        console.log(response);
+      })
+
+  }
+
+
+
+  $scope.RegistrarUbicacion = function () {
+
+    $http
+      .post("http://localhost:9000/RegistrarUbicacion", $scope.formData)
+      .then(function successCallback(response) {
+        // $scope.formData = {};
+        $scope.message = response.data;
+        console.log(response);
+      })
+
+  }
+
+  onload = function () {
+    $http.get("http://localhost:9000/listadoUbicaciones").then(function succesCallback(response) {
+      $scope.ubicaciones = response.data;
+    })
+
+  }
+
+
 })
 
 
-onload = function () {
-  document.getElementById('lbtnTest').onclick = function () {
-    alert("Hola inmodigital")
-    // Obtenga la aplicación Angular a través del controlador
-    var appElement = document.querySelector('[ng-controller=myController]');
-    // Obtenga la variable $ scope
-    var $scope = angular.element(appElement).scope();
-
-    // Llama a la variable msg y cambia el valor de msg
-    $scope.msg = 'Trae la variable msg';
-    // La línea anterior cambió el valor de msg. Si desea sincronizar con el controlador angular, debe llamar al método $ apply ().
-    $scope.$apply();
-    // Llame al método getData () en el controlador
-    console.log($scope.getData());
-  }
-}
 
