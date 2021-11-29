@@ -1,0 +1,89 @@
+
+<html >
+
+    <head>
+        <meta name="viewport" content="width=device-width" />
+        <title>Formulario Usuario</title>
+        
+    </head>
+    
+    <body>
+    
+        <div>
+            {{msg}}
+    
+        </div>
+    
+        <form class="form"   [formGroup]="usuario" >
+            <h2 class="form_title">Registro de usuario</h2>
+            <div class="form_succes" >
+                {{todos}}
+            </div>
+    
+            <div class="form_container form-group">
+                <div class="form_group">
+                    <input type="text" class="form_input form-control input-lg text-center" id="nombres" formControlName="nombres" placeholder=" " >
+                    <label class="form_label" for="valor">Nombres</label>
+                    <span class="form_line"></span>
+                </div>
+                <br>
+                <div class="form_group">
+                    <input type="text" class="form_input form-control input-lg text-center" id="apellidos"
+                    formControlName="apellidos" placeholder=" ">
+                    <label class="form_label" for="valor">Apellidos</label>
+                    <span class="form_line"></span>
+                </div>
+                <br>
+                <div class="form_group">
+                    <input type="text" class="form_input form-control input-lg text-center" id="cedula"
+                    formControlName="cedula" placeholder=" ">
+                    <label class="form_label" for="valor">Cedula</label>
+                    <span class="form_line"></span>
+                </div>
+                <br>
+                <div class="form_group">
+                    <input type="text" class="form_input form-control input-lg text-center" id="nombre_usuario"
+                    formControlName="nombre_usuario" placeholder=" ">
+                    <label class="form_label" for="valor">Usuario Logeo</label>
+                    <span class="form_line"></span>
+                </div>
+                <br>
+                <div class="form_group">
+                    <input type="text" class="form_input form-control input-lg text-center" id="correo"
+                    formControlName="correo" placeholder=" ">
+                    <label class="form_label" for="valor">Correo</label>
+                    <span class="form_line"></span>
+                </div>
+                <br>
+                <div class="form_group">
+                    <input type="text" class="form_input form-control input-lg text-center" id="clave"
+                    formControlName="clave" placeholder=" ">
+                    <label class="form_label" for="valor">Clave</label>
+                    <span class="form_line"></span>
+                </div>
+                <br>
+                <div class="form_group">
+                    <input type="text" class="form_input form-control input-lg text-center" id="rol" formControlName="rol"
+                        placeholder=" ">
+                    <label class="form_label" for="valor">Rol</label>
+                    <span class="form_line"></span>
+                </div>
+                <br>
+    
+    
+                <button class="form_submit btn btn-primary btn-lg" (click)="registrar()">Registrar</button>
+            </div>
+
+            <div class="form_succes" >
+                {{todos}}
+            </div>
+            <br>
+        </form>
+    
+        <br><br>
+        <a style="text-align: center;" href="index.html"><input type="button" value="Regresar"></a>
+    
+        <br><br><br>
+    </body>
+    
+    </html>

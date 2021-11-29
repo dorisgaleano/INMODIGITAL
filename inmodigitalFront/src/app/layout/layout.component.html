@@ -1,0 +1,92 @@
+<div>
+    <div class="banner">
+
+        <div class="headerB">
+            <label>
+                <img class="logoImagen" src="./assets/img/logoPng.png">
+            </label>
+            <label class="logo">
+                INMODIGITAL
+            </label>
+        </div>
+        <nav class="menu">
+            <ul class="menu-items">
+                <li>
+                    <a routerLink="/home" routerLinkActive="active"><i class="fas fa-home"></i> HOME</a>
+                </li>
+                <li>
+                    <a href="/productos-servicios"><i class="fas fa-city"></i> Consultar productos y servicios</a>
+                </li>
+                <li>
+                    <a href="#"><i class="fas fa-hand-holding-usd"></i> Ofertar inmuebles</a>
+                </li>
+                <li *ngIf="!autenticado">
+                    <a routerLink="/login" routerLinkActive="active"><i class="fas fa-sign-in-alt"></i> Iniciar
+                        sesión</a>
+                </li>
+
+                <li *ngIf="true">
+                    <a routerLink="/home" (click)="salir()" routerLinkActive="active"><i class="fas fa-door-open"></i>
+                        Salir</a>
+                </li>
+                <li>
+                    <a href="#"><i class="fas fa-headset"></i> Contactanos</a>
+                </li>
+            </ul>
+            <span class="btn-menu">
+                <div (click)="mostrar()">
+                    <i class=" fas fa-bars"></i>
+                </div>
+            </span>
+        </nav>
+    </div>
+</div>
+<br><br><br><br>
+<div style="margin-top: 50px; margin-bottom: 100px;">
+    <router-outlet></router-outlet>
+</div>
+
+
+<div class="footer">
+
+    <div class="footer-container">
+        <div class="column1">
+            <h1>Más información de nuestra empresa</h1>
+            <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium perferendis voluptatum sapiente
+                voluptas! Itaque laudantium atque repellat corrupti saepe consequatur placeat maxime delectus,
+                repellendus
+            </p>
+        </div>
+
+        <div class="column2">
+            <h1>Redes sociales</h1>
+            <div class="footer-row">
+                <i style="color: blue;" class="fab fa-facebook"></i>
+                <label>Siguenos en facebook</label>
+            </div>
+            <div class="footer-row">
+                <i style="color: blueviolet;" class="fab fa-instagram"></i>
+                <label>Siguenos en instagram</label>
+            </div>
+            <div class="footer-row">
+                <i style="color: red;" class="fab fa-youtube"></i>
+                <label>Siguenos en youtube</label>
+            </div>
+        </div>
+
+        <div class="column3">
+            <h1>Información de contactos</h1>
+            <div class="footer-row2">
+                <i style="color: green;" class="fab fa-whatsapp"></i>
+                <label>Cel:+57-3208027209</label>
+            </div>
+            <div class="footer-row2">
+                <i class="far fa-envelope"></i>
+                <label>alexpanquevac@gmail.com</label>
+            </div>
+        </div>
+
+    </div>
+
+</div> 

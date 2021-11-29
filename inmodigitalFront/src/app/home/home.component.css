@@ -1,0 +1,17 @@
+.contenido{
+    margin: 3px;
+    align-items: center;
+}
+
+.caja{
+    text-align: justify;
+    display: table-cell;
+    padding: 10px 60px;
+}
+
+@media screen and (max-width:650px) {
+   
+    .caja{
+        display: grid;
+    }
+}

@@ -1,0 +1,82 @@
+
+<html>
+
+    <head>
+        <meta name="viewport" content="width=device-width" />
+        <title>Inmuebles</title>
+    
+    </head>
+    
+    <body >
+    
+        <form class="form">
+            <h2 class="form_title">Registro de inmueble</h2>
+            <div class="form_succes" >
+                {{message}}
+            </div>
+            <div class="form_container form-group">
+                <div class="form_group">
+                    <input type="text" class="form_input form-control input-lg text-center" id="descripcion"
+                        name="descripcion " ng-model="formData.descripcion" placeholder=" ">
+                    <label class="form_label" for="valor">Descripción</label>
+                    <span class="form_line"></span>
+                </div>
+                <br>
+                <div class="form_group">
+                    <input type="text" class="form_input form-control input-lg text-center" id="tipo"
+                        ng-model="formData.tipo" placeholder=" ">
+                    <label class="form_label" for="valor">Tipo</label>
+                    <span class="form_line"></span>
+                </div>
+                <br>
+                <div class="form_group">
+                    <select style="margin-left: 100px;" name="repeatSelect" id="repeatSelect" ng-model="formData.ubicacion">
+                        <option ng-repeat="option in ubicaciones" value="{{option._id}}">{{option.barrio}}-{{option.zona}}</option>
+                    </select>
+                    <label class="form_label" for="valor">Ubicacion</label> <button (click)="crearUbicacion()">+</button>
+                    <span class="form_line"></span>
+                </div>
+                <br>
+                <br>
+                <div class="form_group">
+                    <input type="text" class="form_input form-control input-lg text-center" id="direccion"
+                        ng-model="formData.direccion" placeholder=" ">
+                    <label class="form_label" for="valor">Dirección</label>
+                    <span class="form_line"></span>
+                </div>
+                <br>
+                <div class="form_group">
+                    <input type="text" class="form_input form-control input-lg text-center" id="numeroHabitaciones"
+                        ng-model="formData.nroHabitaciones" placeholder=" ">
+                    <label class="form_label" for="valor">Nro. Habitaciones</label>
+                    <span class="form_line"></span>
+                </div>
+                <br>
+                <div class="form_group">
+                    <input type="text" class="form_input form-control input-lg text-center" id="precio"
+                        ng-model="formData.precio" placeholder=" ">
+                    <label class="form_label" for="valor">Precio</label>
+                    <span class="form_line"></span>
+                </div>
+                <br>
+                <div class="form_group">
+                    <input type="text" class="form_input form-control input-lg text-center" id="imagen"
+                        ng-model="formData.imagen" placeholder=" ">
+                    <label class="form_label" for="valor">Subir imagen</label>
+                    <span class="form_line"></span>
+                </div>
+                <br>
+                <button class="form_submit btn btn-primary btn-lg" ng-click="RegistrarInmueble()">Guardar</button>
+            </div>
+            <br>
+        </form>
+    
+        <br><br><a style="text-align: center;" href="index.html"><input type="button" value="Salir"></a>
+        <br><br>
+    
+    
+    
+    
+    </body>
+    
+    </html>
