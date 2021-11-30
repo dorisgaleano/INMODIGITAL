@@ -27,6 +27,14 @@ export class LoginComponent implements OnInit {
       if (data.logueado == "no logueado") {
         this.errorMessage = "Credenciales invalidas."
       } else {
+        var estado = document.getElementById("iniciarSesion");
+        var salir = document.getElementById("salir");
+        if (estado) {
+          estado.style.display = "none";
+        }
+        if (salir) {
+          salir.style.display = "block";
+        }
         sessionStorage.setItem('usuario', data.usuario)
         this.autenticado = true
       }

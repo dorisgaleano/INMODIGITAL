@@ -31,6 +31,14 @@ export class LayoutComponent implements OnInit, AfterViewInit {
 
   salir(){
     this.autenticado = false;
+    var estado = document.getElementById("iniciarSesion");
+    var salir = document.getElementById("salir");
+    if (estado) {
+      estado.style.display = "block";
+    }
+    if (salir) {
+      salir.style.display = "none";
+    }
     sessionStorage.removeItem("usuario")
   }
 }

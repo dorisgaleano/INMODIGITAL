@@ -15,6 +15,7 @@ import { ConsultaInmuebleComponent } from './consulta-inmueble/consulta-inmueble
 import { ServicioGlobalService } from './servicios/servicio-global.service';
 import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 import { ProductoServicioComponent } from './producto-servicio/producto-servicio.component';
+import { ContactoComponent } from './contacto/contacto.component';
 
 
 @NgModule({
@@ -28,7 +29,8 @@ import { ProductoServicioComponent } from './producto-servicio/producto-servicio
     LoginComponent,
     LayoutComponent,
     ConsultaInmuebleComponent,
-    ProductoServicioComponent
+    ProductoServicioComponent,
+    ContactoComponent
   ],
   imports: [
     BrowserModule,

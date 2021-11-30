@@ -145,6 +145,7 @@ background-repeat: no-repeat, repeat;
 }
 
 .menu-items{
+    margin-bottom: 0;
     display: flex;
     list-style: none;
     margin-right: 30px;
@@ -193,12 +194,21 @@ ul.show{
     position: fixed;
 }
 
+table{
+    margin: auto;
+}
+
+table th{
+margin: auto;
+}
+
 
 @media screen and (max-width:858px) {
     .btn-menu{
         display: inline-flex;
     }
     .menu-items{
+        padding-left: 0;
         position: fixed;
         width: 100vw;
         height: calc(100%-65px);

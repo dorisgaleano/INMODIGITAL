@@ -20,17 +20,22 @@
                 <li>
                     <a href="#"><i class="fas fa-hand-holding-usd"></i> Ofertar inmuebles</a>
                 </li>
-                <li *ngIf="!autenticado">
-                    <a routerLink="/login" routerLinkActive="active"><i class="fas fa-sign-in-alt"></i> Iniciar
-                        sesión</a>
-                </li>
+                <div id="iniciarSesion">
+                    <li>
+                        <a routerLink="/login" routerLinkActive="active"><i class="fas fa-sign-in-alt"></i> Iniciar
+                            sesión</a>
+                    </li>
+                </div>
 
-                <li *ngIf="true">
-                    <a routerLink="/home" (click)="salir()" routerLinkActive="active"><i class="fas fa-door-open"></i>
-                        Salir</a>
-                </li>
+                <div style="display: none;" id="salir">
+                    <li>
+                        <a routerLink="/home" (click)="salir()" routerLinkActive="active"><i
+                                class="fas fa-door-open"></i>
+                            Salir</a>
+                    </li>
+                </div>
                 <li>
-                    <a href="#"><i class="fas fa-headset"></i> Contactanos</a>
+                    <a href="/contacto"><i class="fas fa-headset"></i> Contactanos</a>
                 </li>
             </ul>
             <span class="btn-menu">
@@ -89,4 +94,4 @@
 
     </div>
 
-</div> 
+</div>

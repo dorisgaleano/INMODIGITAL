@@ -1,82 +1,22 @@
-
 <div *ngIf="inmuebles">
-<table>
-    <tr>
-        <th>Descripción</th>
-        <th>Dirección</th>
-        <th>Tipo</th>
-        <th>Precio</th>
-    </tr>
-    <!-- BIND ARRAY TO TABLE -->
-    <tr *ngFor="let inmueble of inmuebles; let i = index">
-        <td>{{ inmueble.descripcion}}</td>
-        <td>{{ inmueble.direccion}}</td>
-        <td>{{ inmueble.tipo}}</td>
-        <td>{{ inmueble.precio}}</td>
-    </tr>
-</table>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th scope="col">Descripción</th>
+                <th scope="col">Dirección</th>
+                <th scope="col">Tipo</th>
+                <th scope="col">Precio</th>
+            </tr>
+        </thead>
+        <!-- BIND ARRAY TO TABLE -->
+        <tbody>
+            <tr *ngFor="let inmueble of inmuebles; let i = index">
+                <td>{{ inmueble.descripcion}}</td>
+                <td>{{ inmueble.direccion}}</td>
+                <td>{{ inmueble.tipo}}</td>
+                <td>{{ inmueble.precio}}</td>
+            </tr>
+        </tbody>
+    </table>
 
-<table>
-    <tr>
-        <th>Descripción</th>
-        <th>Dirección</th>
-        <th>Tipo</th>
-        <th>Precio</th>
-    </tr>
-    <!-- BIND ARRAY TO TABLE -->
-    <tr *ngFor="let inmueble of inmuebles; let i = index">
-        <td>{{ inmueble.descripcion}}</td>
-        <td>{{ inmueble.direccion}}</td>
-        <td>{{ inmueble.tipo}}</td>
-        <td>{{ inmueble.precio}}</td>
-    </tr>
-</table>
-
-<table>
-    <tr>
-        <th>Descripción</th>
-        <th>Dirección</th>
-        <th>Tipo</th>
-        <th>Precio</th>
-    </tr>
-    <!-- BIND ARRAY TO TABLE -->
-    <tr *ngFor="let inmueble of inmuebles; let i = index">
-        <td>{{ inmueble.descripcion}}</td>
-        <td>{{ inmueble.direccion}}</td>
-        <td>{{ inmueble.tipo}}</td>
-        <td>{{ inmueble.precio}}</td>
-    </tr>
-</table>
-
-<table>
-    <tr>
-        <th>Descripción</th>
-        <th>Dirección</th>
-        <th>Tipo</th>
-        <th>Precio</th>
-    </tr>
-    <!-- BIND ARRAY TO TABLE -->
-    <tr *ngFor="let inmueble of inmuebles; let i = index">
-        <td>{{ inmueble.descripcion}}</td>
-        <td>{{ inmueble.direccion}}</td>
-        <td>{{ inmueble.tipo}}</td>
-        <td>{{ inmueble.precio}}</td>
-    </tr>
-</table>
-
-<table>
-    <tr>
-        <th>Descripción</th>
-        <th>Dirección</th>
-        <th>Tipo</th>
-        <th>Precio</th>
-    </tr>
-    <!-- BIND ARRAY TO TABLE -->
-    <tr *ngFor="let inmueble of inmuebles; let i = index">
-        <td>{{ inmueble.descripcion}}</td>
-        <td>{{ inmueble.direccion}}</td>
-        <td>{{ inmueble.tipo}}</td>
-        <td>{{ inmueble.precio}}</td>
-    </tr>
-</table>
 </div>
