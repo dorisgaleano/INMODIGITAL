@@ -9,7 +9,7 @@
     
     <body >
     
-        <form class="form">
+        <form class="form"  [formGroup]="inmueble" >
             <h2 class="form_title">Registro de inmueble</h2>
             <div class="form_succes" >
                 {{message}}
@@ -17,22 +17,24 @@
             <div class="form_container form-group">
                 <div class="form_group">
                     <input type="text" class="form_input form-control input-lg text-center" id="descripcion"
-                        name="descripcion " ng-model="formData.descripcion" placeholder=" ">
+                        name="descripcion " formControlName="descripcion" placeholder=" ">
                     <label class="form_label" for="valor">Descripción</label>
                     <span class="form_line"></span>
                 </div>
                 <br>
                 <div class="form_group">
                     <input type="text" class="form_input form-control input-lg text-center" id="tipo"
-                        ng-model="formData.tipo" placeholder=" ">
+                    formControlName="tipo" placeholder=" ">
                     <label class="form_label" for="valor">Tipo</label>
                     <span class="form_line"></span>
                 </div>
                 <br>
                 <div class="form_group">
-                    <select style="margin-left: 100px;" name="repeatSelect" id="repeatSelect" ng-model="formData.ubicacion">
-                        <option ng-repeat="option in ubicaciones" value="{{option._id}}">{{option.barrio}}-{{option.zona}}</option>
-                    </select>
+
+                    <select name="select" formControlName="ubicacion" >
+                        &nbsp;
+                        <option [value]="item._id" *ngFor="let item of ubicaciones">{{item.barrio}}-{{item.zona}}</option>
+                        </select>
                     <label class="form_label" for="valor">Ubicacion</label> <button (click)="crearUbicacion()">+</button>
                     <span class="form_line"></span>
                 </div>
@@ -40,33 +42,33 @@
                 <br>
                 <div class="form_group">
                     <input type="text" class="form_input form-control input-lg text-center" id="direccion"
-                        ng-model="formData.direccion" placeholder=" ">
+                    formControlName="direccion" placeholder=" ">
                     <label class="form_label" for="valor">Dirección</label>
                     <span class="form_line"></span>
                 </div>
                 <br>
                 <div class="form_group">
                     <input type="text" class="form_input form-control input-lg text-center" id="numeroHabitaciones"
-                        ng-model="formData.nroHabitaciones" placeholder=" ">
+                    formControlName="nroHabitaciones" placeholder=" ">
                     <label class="form_label" for="valor">Nro. Habitaciones</label>
                     <span class="form_line"></span>
                 </div>
                 <br>
                 <div class="form_group">
                     <input type="text" class="form_input form-control input-lg text-center" id="precio"
-                        ng-model="formData.precio" placeholder=" ">
+                    formControlName="precio" placeholder=" ">
                     <label class="form_label" for="valor">Precio</label>
                     <span class="form_line"></span>
                 </div>
                 <br>
                 <div class="form_group">
                     <input type="text" class="form_input form-control input-lg text-center" id="imagen"
-                        ng-model="formData.imagen" placeholder=" ">
+                    formControlName="imagen" placeholder=" ">
                     <label class="form_label" for="valor">Subir imagen</label>
                     <span class="form_line"></span>
                 </div>
                 <br>
-                <button class="form_submit btn btn-primary btn-lg" ng-click="RegistrarInmueble()">Guardar</button>
+                <button class="form_submit btn btn-primary btn-lg" (click)="registrar()">Guardar</button>
             </div>
             <br>
         </form>

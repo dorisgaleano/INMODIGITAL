@@ -1,22 +1,68 @@
 <div *ngIf="inmuebles">
-    <table class="table table-striped">
-        <thead>
-            <tr>
-                <th scope="col">Descripción</th>
-                <th scope="col">Dirección</th>
-                <th scope="col">Tipo</th>
-                <th scope="col">Precio</th>
-            </tr>
-        </thead>
-        <!-- BIND ARRAY TO TABLE -->
-        <tbody>
-            <tr *ngFor="let inmueble of inmuebles; let i = index">
-                <td>{{ inmueble.descripcion}}</td>
-                <td>{{ inmueble.direccion}}</td>
-                <td>{{ inmueble.tipo}}</td>
-                <td>{{ inmueble.precio}}</td>
-            </tr>
-        </tbody>
-    </table>
+    <div class="tabla-margen table-responsive">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">Descripción</th>
+                    <th scope="col">Dirección</th>
+                    <th scope="col">Tipo</th>
+                    <th scope="col">Precio</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <!-- BIND ARRAY TO TABLE -->
+            <tbody>
+                <tr *ngFor="let inmueble of inmuebles; let i = index">
+                    <td>{{ inmueble.descripcion}}</td>
+                    <td>{{ inmueble.direccion}}</td>
+                    <td>{{ inmueble.tipo}}</td>
+                    <td>{{ inmueble.precio}}</td>
+                    <td><button type="button" class="btn btn-success" data-toggle="tooltip" title="Detalles"
+                            (click)="openPopup(inmueble)"><i class="far fa-eye"></i></button></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
 
+</div>
+
+<div *ngIf="autenticado">
+    <a routerLink="/registrar-inmueble" routerLinkActive="active">Registrar inmueble</a> 
+</div>
+
+<div class="modal" tabindex="-1" role="dialog" [ngStyle]="{'display':displayStyle}">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Detalle del producto</h5>
+            </div>
+            <div class="modal-body">
+                <div>
+                    Descripción:
+                    {{inmueble.descripcion}}
+                </div>
+                <div>
+                    Dirección:
+                    {{inmueble.direccion}}
+                </div>
+                <div>
+                    Nro. Habitaciones:
+                    {{inmueble.nroHabitaciones}}
+                </div>
+                <div>
+                    Precio:
+                    {{inmueble.precio}}
+                </div>
+                <div>
+                    Tipo:
+                    {{inmueble.tipo}}
+                </div>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal"
+                    (click)="closePopup()">Salir</button>
+            </div>
+        </div>
+    </div>
 </div>

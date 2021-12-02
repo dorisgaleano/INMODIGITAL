@@ -189,9 +189,8 @@ ul.show{
 }
 
 .footer{
-    z-index: -2;
     background-color: rgb(48, 95, 166 ,.9);
-    position: fixed;
+    position: relative;
 }
 
 table{
@@ -251,3 +250,8 @@ margin: auto;
     }
 }
 
+/*BOOTSTRAP STYLES REDISGN*/
+.modal-header{
+    background-color: rgba(69, 118, 190, 0.9);
+    color: white;
+    }

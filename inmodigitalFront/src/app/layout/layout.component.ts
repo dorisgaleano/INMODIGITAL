@@ -1,4 +1,4 @@
-import { Component, OnInit,ViewChild,AfterViewInit, ChangeDetectorRef } from '@angular/core';
+import { Component, OnInit, ViewChild, AfterViewInit, ChangeDetectorRef } from '@angular/core';
 import { LoginComponent } from '../login/login.component';
 
 @Component({
@@ -9,27 +9,39 @@ import { LoginComponent } from '../login/login.component';
 export class LayoutComponent implements OnInit, AfterViewInit {
 
 
-  public autenticado:boolean = false;
+  public autenticado: boolean = false;
 
-  @ViewChild('loginC', {static: false}) child :LoginComponent;
-  constructor(private cd:ChangeDetectorRef) { }
+  @ViewChild('loginC', { static: false }) child: LoginComponent;
+  constructor(private cd: ChangeDetectorRef) { }
 
   ngOnInit(): void {
-      this.autenticado =!!sessionStorage.getItem('usuario');
+
+    this.autenticado = !!sessionStorage.getItem('usuario');
+    var estado = document.getElementById("iniciarSesion");
+    var salir = document.getElementById("salir");
+    if (estado && salir) {
+      if (this.autenticado) {
+        estado.style.display = "none";
+        salir.style.display = "block";
+      }else{
+        estado.style.display = "block";
+        salir.style.display = "none";
+      }
+    }
   }
 
-  ngAfterViewInit(){
-    
+  ngAfterViewInit() {
+
     this.cd.detectChanges();
   }
 
-  mostrar(){
+  mostrar() {
     const menu_items = document.querySelector('.menu-items')
     menu_items?.classList.toggle('show')
-    
+
   }
 
-  salir(){
+  salir() {
     this.autenticado = false;
     var estado = document.getElementById("iniciarSesion");
     var salir = document.getElementById("salir");

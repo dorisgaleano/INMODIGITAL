@@ -10,7 +10,7 @@
         <h2>Registrar ubicacion</h2>
     
         
-        <form class="form"  >
+        <form class="form"  [formGroup]="ubicacion" >
             <div class="form_succes" >
                 {{message}}
             </div>
@@ -18,20 +18,20 @@
             <div class="form_container form-group">
                 <div class="form_group">
                     <input type="text" class="form_input form-control input-lg text-center" id="zona" name="zona"
-                        ng-model="formData.zona" placeholder=" " >
+                    formControlName="zona" placeholder=" " >
                     <label class="form_label" for="valor">Zona</label>
                     <span class="form_line"></span>
                 </div>
                 <br>
                 <div class="form_group">
                     <input type="text" class="form_input form-control input-lg text-center" id="barrio"
-                        ng-model="formData.barrio" placeholder=" ">
+                    formControlName="barrio" placeholder=" ">
                     <label class="form_label" for="valor">Barrio</label>
                     <span class="form_line"></span>
                 </div>
     
                 <br><br>
-                <button class="form_submit btn btn-primary btn-lg" ng-click="RegistrarUbicacion()" >Registrar</button>
+                <button class="form_submit btn btn-primary btn-lg" (click)="registrar()" >Registrar</button>
                 <br>
                 <div  style="text-align: center;">
                     <a  style="text-align: center;" href="inmuebles.html"><input type="button" value="Regresar"></a>

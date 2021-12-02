@@ -66,7 +66,7 @@ app.post("/insertarInmueble", (req, res) => {
     if (err) throw err;
 
   })
-  res.send("Inmueble creado")
+  res.send({estado:"creado"})
 })
 
 
@@ -76,7 +76,7 @@ app.post("/RegistrarUbicacion", (req, res) => {
     if (err) throw err;
 
   })
-  res.send("Ubicación creada")
+  res.send({estado:"creado"})
 })
 
 
