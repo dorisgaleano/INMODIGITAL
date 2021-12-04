@@ -1,3 +1,14 @@
+<div class="btn-group">
+    <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+        Seleccione
+    </button>
+    <ul class="dropdown-menu">
+        <div *ngFor="let item of ubicaciones; let i = index">
+            <li><a class="dropdown-item" (click)="cambiarUbicacion(item)">{{item.zona}}-{{item.barrio}}</a></li>
+        </div>
+    </ul>
+</div>
+
 <div *ngIf="inmuebles">
     <div class="tabla-margen table-responsive">
         <table class="table table-striped">
@@ -5,6 +16,7 @@
                 <tr>
                     <th scope="col">Descripción</th>
                     <th scope="col">Dirección</th>
+                    <th scope="col">Ubicación</th>
                     <th scope="col">Tipo</th>
                     <th scope="col">Precio</th>
                     <th>Acciones</th>
@@ -15,6 +27,7 @@
                 <tr *ngFor="let inmueble of inmuebles; let i = index">
                     <td>{{ inmueble.descripcion}}</td>
                     <td>{{ inmueble.direccion}}</td>
+                    <td>{{ inmueble.ubicacion}}</td>
                     <td>{{ inmueble.tipo}}</td>
                     <td>{{ inmueble.precio}}</td>
                     <td><button type="button" class="btn btn-success" data-toggle="tooltip" title="Detalles"
@@ -27,7 +40,7 @@
 </div>
 
 <div *ngIf="autenticado">
-    <a routerLink="/registrar-inmueble" routerLinkActive="active">Registrar inmueble</a> 
+    <a routerLink="/registrar-inmueble" routerLinkActive="active">Registrar inmueble</a>
 </div>
 
 <div class="modal" tabindex="-1" role="dialog" [ngStyle]="{'display':displayStyle}">

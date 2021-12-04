@@ -11,7 +11,7 @@
     
         
         <form class="form"  [formGroup]="ubicacion" >
-            <div class="form_succes" >
+            <div *ngIf="message" class="alert alert-success" role="alert">
                 {{message}}
             </div>
     
