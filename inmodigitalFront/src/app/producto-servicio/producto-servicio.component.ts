@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { InmuebleServiceService } from '../servicios/inmueble-service.service';
 import { UbicacionServiceService } from '../servicios/ubicacion-service.service';
+import { Pipe, PipeTransform } from '@angular/core';
+
 
 interface inmueblesI {
 
@@ -15,6 +17,8 @@ interface inmueblesI {
   templateUrl: './producto-servicio.component.html',
   styleUrls: ['./producto-servicio.component.css']
 })
+
+
 export class ProductoServicioComponent implements OnInit {
 
   constructor(private inmuebleServicio:InmuebleServiceService, private ubicacionServicio:UbicacionServiceService) { }
@@ -24,6 +28,8 @@ export class ProductoServicioComponent implements OnInit {
   inmueble:any = [];
   ubicaciones:any = [];
   ubicacionFiltro :any;
+  tipos:any = ['Casa','Apartamento']
+  habitaciones:any = ['1','2','3','4','5']
 
   public autenticado: boolean = false;
 
@@ -31,14 +37,13 @@ export class ProductoServicioComponent implements OnInit {
     this.autenticado = !!sessionStorage.getItem('usuario');
 
     this.inmuebleServicio.getInmuebles().subscribe(data=>{
-      console.log(data)
       this.inmuebles = data
+      console.log(data)
       this.inmueblesRespaldo = data;
     })
 
 
     this.ubicacionServicio.getUbicaciones().subscribe(data=>{
-      console.log(data)
       this.ubicaciones = data
     })
   }
@@ -68,6 +73,40 @@ export class ProductoServicioComponent implements OnInit {
         this.inmuebles.push(this.inmueblesRespaldo[i])
       }
     }
+  }
+
+  cambiarTipo(tipoLlega:any){
+    this.inmuebles = [];
+    for(let i = 0; i<= this.inmueblesRespaldo.length;i++){
+      if(this.inmueblesRespaldo[i].tipo == tipoLlega){
+        this.inmuebles.push(this.inmueblesRespaldo[i])
+      }
+    }
+  }
+
+  cambiarHabitaciones(numero:any){
+    this.inmuebles = [];
+    for(let i = 0; i<= this.inmueblesRespaldo.length;i++){
+      if(this.inmueblesRespaldo[i].nroHabitaciones == numero){
+        this.inmuebles.push(this.inmueblesRespaldo[i])
+      }
+    }
+  }
+
+  limpiarFiltro(){
+    this.inmuebles = [];
+    this.inmuebles = this.inmueblesRespaldo;
+  }
+
+  nombreUbicacion(id:any):string{
+    let nombre = "";
+    for(let i = 0;i<this.ubicaciones.length;i++){
+      if(id==this.ubicaciones[i]._id){
+        nombre = this.ubicaciones[i].zona + "-" + this.ubicaciones[i].barrio;
+        break;
+      }
+    }
+    return nombre;
   }
 
 }

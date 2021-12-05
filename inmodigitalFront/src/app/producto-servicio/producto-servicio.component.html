@@ -1,13 +1,50 @@
-<div class="btn-group">
-    <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-        Seleccione
-    </button>
-    <ul class="dropdown-menu">
-        <div *ngFor="let item of ubicaciones; let i = index">
-            <li><a class="dropdown-item" (click)="cambiarUbicacion(item)">{{item.zona}}-{{item.barrio}}</a></li>
-        </div>
-    </ul>
+
+
+
+<div class="filtros">
+    <div class="btn-group">
+        <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+            <i class="fas fa-map-signs"></i> Ubicación
+        </button>
+        <ul class="dropdown-menu">
+            <div *ngFor="let item of ubicaciones; let i = index">
+                <li><a class="dropdown-item" (click)="cambiarUbicacion(item)">{{item.zona}}-{{item.barrio}}</a></li>
+            </div>
+        </ul>
+    </div>
+
+    <div class="btn-group">
+        <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+             <i class="fas fa-house-user"></i> Tipo
+        </button>
+        <ul class="dropdown-menu">
+            <div *ngFor="let tipo of tipos; let i = index">
+                <li><a class="dropdown-item" (click)="cambiarTipo(tipo)">{{tipo}}</a></li>
+            </div>
+        </ul>
+    </div>
+
+    <div class="btn-group">
+        <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+            <i class="fas fa-person-booth"></i> Nro. habitaciones
+        </button>
+        <ul class="dropdown-menu">
+            <div *ngFor="let numero of habitaciones; let i = index">
+                <li><a class="dropdown-item" (click)="cambiarHabitaciones(numero)">{{numero}}</a></li>
+            </div>
+        </ul>
+    </div>
+
+    <div>
+        <button type="button" class="btn btn-primary" data-toggle="tooltip" title="Detalles"
+        (click)="limpiarFiltro()">Limpiar filtro <i class="fas fa-trash"></i></button>
+
+    </div>
+
+
 </div>
+
+<br>
 
 <div *ngIf="inmuebles">
     <div class="tabla-margen table-responsive">
@@ -15,10 +52,10 @@
             <thead>
                 <tr>
                     <th scope="col">Descripción</th>
-                    <th scope="col">Dirección</th>
                     <th scope="col">Ubicación</th>
                     <th scope="col">Tipo</th>
-                    <th scope="col">Precio</th>
+                    <th scope="col">Nro. Habitaciones</th>
+                    <th scope="col">Dirección</th>
                     <th>Acciones</th>
                 </tr>
             </thead>
@@ -26,10 +63,10 @@
             <tbody>
                 <tr *ngFor="let inmueble of inmuebles; let i = index">
                     <td>{{ inmueble.descripcion}}</td>
-                    <td>{{ inmueble.direccion}}</td>
-                    <td>{{ inmueble.ubicacion}}</td>
+                    <td>{{ nombreUbicacion(inmueble.ubicacion)}}</td>
                     <td>{{ inmueble.tipo}}</td>
-                    <td>{{ inmueble.precio}}</td>
+                    <td style="text-align: center;">{{ inmueble.nroHabitaciones}}</td>
+                    <td>{{ inmueble.direccion}}</td>
                     <td><button type="button" class="btn btn-success" data-toggle="tooltip" title="Detalles"
                             (click)="openPopup(inmueble)"><i class="far fa-eye"></i></button></td>
                 </tr>

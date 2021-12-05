@@ -25,6 +25,7 @@ export class RegistroUbicacionComponent implements OnInit {
     });
   }
   
+  
   registrar(){
 
     this.ubicacionService.registrarUbicacion(this.ubicacion.value).subscribe(data =>{  

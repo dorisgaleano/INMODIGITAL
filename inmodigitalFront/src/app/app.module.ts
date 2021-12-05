@@ -30,7 +30,7 @@ import { ContactoComponent } from './contacto/contacto.component';
     LayoutComponent,
     ConsultaInmuebleComponent,
     ProductoServicioComponent,
-    ContactoComponent
+    ContactoComponent,
   ],
   imports: [
     BrowserModule,
