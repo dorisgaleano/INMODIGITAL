@@ -63,7 +63,7 @@
             <tbody>
                 <tr *ngFor="let inmueble of inmuebles; let i = index">
                     <td>{{ inmueble.descripcion}}</td>
-                    <td>{{ nombreUbicacion(inmueble.ubicacion)}}</td>
+                    <td>{{ inmueble.ubicacion.zona}} - {{ inmueble.ubicacion.barrio}}</td>
                     <td>{{ inmueble.tipo}}</td>
                     <td style="text-align: center;">{{ inmueble.nroHabitaciones}}</td>
                     <td>{{ inmueble.direccion}}</td>

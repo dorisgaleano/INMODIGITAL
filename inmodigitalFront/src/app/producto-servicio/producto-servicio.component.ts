@@ -38,7 +38,6 @@ export class ProductoServicioComponent implements OnInit {
 
     this.inmuebleServicio.getInmuebles().subscribe(data=>{
       this.inmuebles = data
-      console.log(data)
       this.inmueblesRespaldo = data;
     })
 
@@ -52,7 +51,6 @@ export class ProductoServicioComponent implements OnInit {
 
   openPopup(inmueble:any) {
     this.inmueble = inmueble;
-    console.log(this.inmueble)
     this.displayStyle = "block";
   }
 
@@ -62,14 +60,13 @@ export class ProductoServicioComponent implements OnInit {
 
   cambiarUbicacion(ubicacion:any){
     this.ubicacionFiltro = ubicacion;
-    console.log(this.ubicacionFiltro);
     this.filtrar()
   }
 
   filtrar(){
     this.inmuebles = [];
     for(let i = 0; i<= this.inmueblesRespaldo.length;i++){
-      if(this.inmueblesRespaldo[i].ubicacion == this.ubicacionFiltro._id){
+      if(this.inmueblesRespaldo[i].ubicacion._id == this.ubicacionFiltro._id){
         this.inmuebles.push(this.inmueblesRespaldo[i])
       }
     }
@@ -96,17 +93,6 @@ export class ProductoServicioComponent implements OnInit {
   limpiarFiltro(){
     this.inmuebles = [];
     this.inmuebles = this.inmueblesRespaldo;
-  }
-
-  nombreUbicacion(id:any):string{
-    let nombre = "";
-    for(let i = 0;i<this.ubicaciones.length;i++){
-      if(id==this.ubicaciones[i]._id){
-        nombre = this.ubicaciones[i].zona + "-" + this.ubicaciones[i].barrio;
-        break;
-      }
-    }
-    return nombre;
   }
 
 }

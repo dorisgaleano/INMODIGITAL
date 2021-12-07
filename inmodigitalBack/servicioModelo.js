@@ -30,9 +30,9 @@ app.post("/login", (req, res) => {
     if (err) throw err;
 
     if (doc[0]) {
-      res.send({logueado:"logueado", usuario:doc[0].usuario, rol:doc[0].rol})
+      res.send({ logueado: "logueado", usuario: doc[0].usuario, rol: doc[0].rol })
     } else {
-      res.send({logueado:"no logueado"})
+      res.send({ logueado: "no logueado" })
     }
   })
 })
@@ -43,7 +43,7 @@ app.post("/registrarUsuario", (req, res) => {
     if (err) throw err;
 
   })
-  res.send({estado:"creado"})
+  res.send({ estado: "creado" })
 })
 
 app.get("/listadoUbicaciones", (req, res) => {
@@ -54,8 +54,11 @@ app.get("/listadoUbicaciones", (req, res) => {
 
 app.get("/consultaInmuebles", (req, res) => {
 
-  modeloInmueble.find({}, (err, docs) => {
-    res.send(docs);
+  modeloInmueble.find({  }, function (err, inmuebles) {
+    modeloUbicacion.populate(inmuebles, { path: "ubicacion" }, function (err, inmuebles) {
+            res.end(JSON.stringify(inmuebles))
+    });
+
   })
 
 })
@@ -66,7 +69,7 @@ app.post("/insertarInmueble", (req, res) => {
     if (err) throw err;
 
   })
-  res.send({estado:"creado"})
+  res.send({ estado: "creado" })
 })
 
 
@@ -76,7 +79,7 @@ app.post("/RegistrarUbicacion", (req, res) => {
     if (err) throw err;
 
   })
-  res.send({estado:"creado"})
+  res.send({ estado: "creado" })
 })
 
 

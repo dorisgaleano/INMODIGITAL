@@ -33,7 +33,6 @@ export class RegistroInmueblesComponent implements OnInit {
     });
 
     this.servicioUbicacion.getUbicaciones().subscribe(data => {
-      console.log(data)
       this.ubicaciones = data
     })
 
@@ -46,7 +45,6 @@ export class RegistroInmueblesComponent implements OnInit {
   registrar(){
 
     this.inmuebleService.registrarInmueble(this.inmueble.value).subscribe(data =>{  
-      console.log(data)
       if(data.estado=="creado"){
         this.message = "Inmueble creado exitosamente"
       }

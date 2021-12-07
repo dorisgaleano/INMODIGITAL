@@ -29,7 +29,6 @@ export class RegistroUbicacionComponent implements OnInit {
   registrar(){
 
     this.ubicacionService.registrarUbicacion(this.ubicacion.value).subscribe(data =>{  
-      console.log(data)
       if(data.estado=="creado"){
         this.message = "Ubicación creada exitosamente"
       }

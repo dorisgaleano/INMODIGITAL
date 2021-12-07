@@ -3,34 +3,19 @@ const { ObjectId } = require('mongodb');
 
 const inmobiliariaEsquema = mongoose.Schema({
 
-    descripcion:{
-        type: String
-    },
+    descripcion: String,
 
-    tipo:{
-        type: String
-    },
+    tipo: String,
 
-    ubicacion:{
-        type: ObjectId
-    },
+    ubicacion:  { type: mongoose.Schema.ObjectId, ref: "ubicaciones" },
 
-    direccion: {
-        type: String
-    },
+    direccion: String,
 
-    nroHabitaciones:{
-        type: String
-    },
+    nroHabitaciones: String,
 
-    precio: {
-        type: String
-    },
+    precio: String,
 
-    imagen:{
-        type: String
-    }
-
+    imagen: String
 
     })
     module.exports= mongoose.model('inmuebles', inmobiliariaEsquema)
