@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { InmuebleServiceService } from '../servicios/inmueble-service.service';
 import { UbicacionServiceService } from '../servicios/ubicacion-service.service';
 import { Pipe, PipeTransform } from '@angular/core';
+import { Router } from '@angular/router';
 
 
 interface inmueblesI {
@@ -21,7 +22,8 @@ interface inmueblesI {
 
 export class ProductoServicioComponent implements OnInit {
 
-  constructor(private inmuebleServicio:InmuebleServiceService, private ubicacionServicio:UbicacionServiceService) { }
+  constructor(private inmuebleServicio:InmuebleServiceService, private ubicacionServicio:UbicacionServiceService,
+    private router: Router) { }
 
   inmuebles:any;
   inmueblesRespaldo:any = [];
@@ -93,6 +95,10 @@ export class ProductoServicioComponent implements OnInit {
   limpiarFiltro(){
     this.inmuebles = [];
     this.inmuebles = this.inmueblesRespaldo;
+  }
+
+  irRegistrarInmueble(){
+    this.router.navigateByUrl('/registrar-inmueble');
   }
 
 }

@@ -28,14 +28,22 @@ export class ServicioGlobalService {
   getInmuebles() {
 
 
-    this.http.get(this.url + "/consultaInmuebles", {headers: this.headers}).subscribe(data => {
+    this.http.get(this.url + "/consultaInmuebles", { headers: this.headers }).subscribe(data => {
     })
 
   }
 
   login(user: any): Observable<any> {
 
-    return this.http.post(this.url + "/login", user, {headers: this.headers});
+    return this.http.post(this.url + "/login", user, { headers: this.headers });
+  }
+
+  guardarImagen(formData: any):Observable<any> {
+    console.log(formData.get('files'))
+    let headersI = new HttpHeaders();
+    headersI.set('enctype','multipart/form-data')
+
+    return this.http.post(this.url + "/guardarImagen", formData, {  headers: headersI });
   }
 
 }

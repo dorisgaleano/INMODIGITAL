@@ -5,7 +5,6 @@
 }
 
 body{
-
 background-position: 0 0,10px 10px;
 display: flex;
 flex-direction: column;
@@ -19,8 +18,9 @@ background-repeat: no-repeat, repeat;
 .form{
     background-color: #cde5ff8C;
     margin: auto;
+    margin-top: -5px;
     width: 90%;
-    max-width: 400px;
+    max-width: 450px;
     padding: 4.5em 3em;
     border-radius: 10px;
     box-shadow: 0 5px 10px -5px rgb(0, 0, 0 / 30%);
@@ -118,7 +118,7 @@ background-repeat: no-repeat, repeat;
 
 
 .banner{
-    z-index: 0;
+    z-index: 2;
     background-color: rgb(48, 95, 166 ,.9);
     height: 106px;
     width: 100vw;

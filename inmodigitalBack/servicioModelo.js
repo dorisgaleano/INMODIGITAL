@@ -5,6 +5,9 @@ var modeloUbicacion = require('./ubicacion')
 var modeloInmueble = require('./inmuebles')
 
 const cors = require('cors');
+const path = require("path");
+
+let fs = require('fs')
 
 
 const app = new express();
@@ -12,16 +15,23 @@ const HTML_CONTENT_TYPE = 'text/html'
 
 const bodyParser = require("body-parser");
 
-
+app.use(bodyParser.urlencoded({ extended: false}));
 app.use(bodyParser.json());
 
+const routePath = "http://localhost:9000";
 
-const path = require("path");
+app.use(express.static("./public"))
+
+const multer = require("multer");
+
+let objMulter = multer({dest:"./public"})
+
+app.use(objMulter.any())
 
 app.use(cors())
 
-
 require('./conexion')
+
 
 
 
@@ -64,11 +74,11 @@ app.get("/consultaInmuebles", (req, res) => {
 })
 
 app.post("/insertarInmueble", (req, res) => {
-  var myobj = { descripcion: req.body.descripcion, tipo: req.body.tipo, ubicacion: req.body.ubicacion, direccion: req.body.direccion, nroHabitaciones: req.body.nroHabitaciones, precio: req.body.precio, imagen: req.body.imagen };
+   var myobj = { descripcion: req.body.descripcion, tipo: req.body.tipo, ubicacion: req.body.ubicacion, direccion: req.body.direccion, nroHabitaciones: req.body.nroHabitaciones, precio: req.body.precio, imagen: req.body.imagen };
   modeloInmueble.collection.insertOne(myobj, function (err, res) {
     if (err) throw err;
 
-  })
+  }) 
   res.send({ estado: "creado" })
 })
 
@@ -80,6 +90,20 @@ app.post("/RegistrarUbicacion", (req, res) => {
 
   })
   res.send({ estado: "creado" })
+})
+
+app.post("/guardarImagen", (req, res) => {
+  let archivo = req.files[0].filename;
+   
+  let oldName = req.files[0].path;
+  let newName = oldName + path.parse(req.files[0].originalname).ext
+
+  let nombreImagen = req.files[0].filename + path.parse(req.files[0].originalname).ext
+  let rutaImagen = routePath +"/"+nombreImagen;
+  fs.renameSync(oldName,newName)
+  res.send({ estado: "creado",
+  rutaImagen:rutaImagen}) 
+
 })
 
 

@@ -17,9 +17,6 @@
                 <li>
                     <a href="/productos-servicios"><i class="fas fa-city"></i> Consultar productos y servicios</a>
                 </li>
-                <li>
-                    <a href="#"><i class="fas fa-hand-holding-usd"></i> Ofertar inmuebles</a>
-                </li>
                 <div id="iniciarSesion">
                     <li>
                         <a routerLink="/login" routerLinkActive="active"><i class="fas fa-sign-in-alt"></i> Iniciar
@@ -27,6 +24,10 @@
                     </li>
                 </div>
 
+    
+                <li>
+                    <a href="/contacto"><i class="fas fa-headset"></i> Contactanos</a>
+                </li>
                 <div style="display: none;" id="salir">
                     <li>
                         <a routerLink="/home" (click)="salir()" routerLinkActive="active"><i
@@ -34,9 +35,6 @@
                             Salir</a>
                     </li>
                 </div>
-                <li>
-                    <a href="/contacto"><i class="fas fa-headset"></i> Contactanos</a>
-                </li>
             </ul>
             <span class="btn-menu">
                 <div (click)="mostrar()">

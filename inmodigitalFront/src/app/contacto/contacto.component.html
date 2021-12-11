@@ -1,14 +1,14 @@
 
 <body >  
+    <div *ngIf="errorMessage" style="text-align: center;" class="alert alert-success" role="alert">
+        {{errorMessage}}
+    </div>
 <div class="contenedor-columna">
+    
     <div class="form-contacto">
         <h2 class="form_title">Contactanos <i class="fas fa-phone"></i> </h2>
         <div class="form_succes">
 
-        </div>
-
-        <div class="form_error">
-            {{errorMessage}}
         </div>
 
         <div class="form_container form-group">
@@ -32,7 +32,7 @@
             </div>
 
             <br><br>
-            <button class="form_submit btn btn-primary btn-lg">Enviar <i class="fas fa-paper-plane"></i></button>
+            <button class="form_submit btn btn-primary btn-lg" (click)="enviar()">Enviar <i class="fas fa-paper-plane"></i></button>
             <br>
         </div>
         <br>

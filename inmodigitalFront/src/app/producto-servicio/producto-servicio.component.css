@@ -9,3 +9,23 @@
     padding-left: 50px;
     padding-right: 50px;
 }
+
+.contenedor-slide{
+    border: 15px solid #dee2e6;
+    margin: 80px;    
+}
+
+
+@media screen and (max-width:858px) {
+    .filtros{
+        display: grid;
+    }
+    .seleccionable{
+        width: 400px;
+    }
+
+    .contenedor-slide{
+        border: 12px solid #dee2e6;
+        margin: 0;    
+    }
+}

@@ -1,8 +1,5 @@
-
-
-
 <div class="filtros">
-    <div class="btn-group">
+    <div class="seleccionable btn-group">
         <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
             <i class="fas fa-map-signs"></i> Ubicación
         </button>
@@ -12,10 +9,11 @@
             </div>
         </ul>
     </div>
+    <br>
 
-    <div class="btn-group">
+    <div class="seleccionable btn-group">
         <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-             <i class="fas fa-house-user"></i> Tipo
+            <i class="fas fa-house-user"></i> Tipo
         </button>
         <ul class="dropdown-menu">
             <div *ngFor="let tipo of tipos; let i = index">
@@ -23,8 +21,8 @@
             </div>
         </ul>
     </div>
-
-    <div class="btn-group">
+    <br>
+    <div class="seleccionable btn-group">
         <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
             <i class="fas fa-person-booth"></i> Nro. habitaciones
         </button>
@@ -34,10 +32,11 @@
             </div>
         </ul>
     </div>
+    <br>
 
-    <div>
-        <button type="button" class="btn btn-primary" data-toggle="tooltip" title="Detalles"
-        (click)="limpiarFiltro()">Limpiar filtro <i class="fas fa-trash"></i></button>
+    <div class="seleccionable">
+        <button type="button" class="seleccionable btn btn-primary" data-toggle="tooltip" title="Detalles"
+            (click)="limpiarFiltro()">Limpiar filtro <i class="fas fa-trash"></i></button>
 
     </div>
 
@@ -76,8 +75,11 @@
 
 </div>
 
-<div *ngIf="autenticado">
-    <a routerLink="/registrar-inmueble" routerLinkActive="active">Registrar inmueble</a>
+<br>
+
+<div style="text-align: center;" *ngIf="autenticado">
+    <button class="btn btn-primary" (click)="irRegistrarInmueble()">Registrar inmueble <i
+            class="fas fa-book-open"></i></button>
 </div>
 
 <div class="modal" tabindex="-1" role="dialog" [ngStyle]="{'display':displayStyle}">
@@ -109,10 +111,54 @@
                 </div>
 
             </div>
+
+            <img class="img-fluid; img-thumbnail" src="{{inmueble.imagen}}">
+
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal"
                     (click)="closePopup()">Salir</button>
             </div>
         </div>
     </div>
+</div>
+
+<br>
+
+<div class="contenedor-slide">
+
+    <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="http://localhost:9000/7b1d9d6486bdf34017e0bd9cc07e1df2.png" class="d-block w-100" alt="...">
+                <div class="carousel-caption">
+                    <h5>Second slide label</h5>
+                    <p>Some representative placeholder content for the second slide.</p>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img src="http://localhost:9000/casa2.jpg" class="d-block w-100" alt="...">
+                <div class="carousel-caption ">
+                    <h5>Second slide label</h5>
+                    <p>Some representative placeholder content for the second slide.</p>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img src="http://localhost:9000/casa3.jpg" class="d-block w-100" alt="...">
+
+                <div class="carousel-caption">
+                    <h5>Second slide label</h5>
+                    <p>Some representative placeholder content for the second slide.</p>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img src="http://localhost:9000/casa4.jpg" class="d-block w-100" alt="...">
+
+                <div class="carousel-caption">
+                    <h5>Second slide label</h5>
+                    <p>Some representative placeholder content for the second slide.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
 </div>

@@ -37,6 +37,7 @@ export class LoginComponent implements OnInit {
         }
         sessionStorage.setItem('usuario', data.usuario)
         this.autenticado = true
+        this.router.navigateByUrl('/productos-servicios');
       }
     })
   }
