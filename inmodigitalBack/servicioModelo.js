@@ -48,7 +48,7 @@ app.post("/login", (req, res) => {
 })
 
 app.post("/registrarUsuario", (req, res) => {
-  var myobj = { nombres: req.body.nombres, apellidos: req.body.apellidos, cedula: req.body.cedula, nombre_usuario: req.body.nombre_usuario, correo: req.body.correo, clave: req.body.clave, rol: req.body.rol };
+  var myobj = { nombres: req.body.nombres, apellidos: req.body.apellidos, cedula: req.body.cedula, usuario: req.body.nombre_usuario, correo: req.body.correo, contrasena: req.body.clave, rol: req.body.rol };
   modelo.collection.insertOne(myobj, function (err, res) {
     if (err) throw err;
 
