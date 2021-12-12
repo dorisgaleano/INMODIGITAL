@@ -1,12 +1,15 @@
 .contenido{
     margin: 3px;
     align-items: center;
+    display: 1200xp;
+
 }
 
 .caja{
     text-align: justify;
     display: table-cell;
-    padding: 10px 60px;
+    padding: 20px 60px;
+    max-width: 800px;
 }
 
 @media screen and (max-width:650px) {

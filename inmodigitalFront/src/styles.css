@@ -201,7 +201,6 @@ table th{
 margin: auto;
 }
 
-
 @media screen and (max-width:858px) {
     .btn-menu{
         display: inline-flex;
