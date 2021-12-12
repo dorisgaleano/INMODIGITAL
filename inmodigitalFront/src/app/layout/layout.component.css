@@ -13,7 +13,8 @@
     max-width: 1200px;
     display: flex;
     justify-content: space-between;
-    padding: 15px;
+    padding: 12px;
+    text-align: justify;
 }
 
 .column1{
@@ -21,7 +22,7 @@
 }
 
 .column1 h1{
-    font-size: 12px;
+    font-size: 10px;
 }
 
 .column1 p{
